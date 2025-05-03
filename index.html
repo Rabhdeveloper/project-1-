@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Birthday, Keshav Sir! 🎉</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+      animation: fadeIn 2s ease-in;
+    }
+
+    header {
+      background: rgba(255,255,255,0.95);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      color: #ff6f61;
+      animation: slideDown 2s ease;
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      color: #222;
+      margin-bottom: 20px;
+      animation: fadeInUp 2s ease;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #444;
+      max-width: 600px;
+      line-height: 1.7;
+      animation: fadeInUp 2s ease 1s;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 14px 40px;
+      font-size: 1.2rem;
+      background: #ff6f61;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff6f61;
+      transition: 0.4s;
+      animation: fadeInUp 2s ease 2s;
+    }
+
+    .btn:hover {
+      background: #ff3b2e;
+      transform: scale(1.1);
+      box-shadow: 0 0 25px #ff3b2e;
+    }
+
+    .balloons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .balloon {
+      position: absolute;
+      width: 60px;
+      height: 80px;
+      background: pink;
+      border-radius: 50% 50% 50% 50%/60% 60% 40% 40%;
+      opacity: 0.7;
+      animation: floatBalloon 10s infinite ease-in;
+    }
+
+    @keyframes floatBalloon {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-100vh) rotate(360deg); }
+    }
+
+    .content-section {
+      padding: 60px 20px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .content-section h3 {
+      font-size: 2rem;
+      color: #ff6f61;
+      margin-bottom: 20px;
+    }
+
+    .content-section p {
+      max-width: 700px;
+      margin: auto;
+      color: #666;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    footer {
+      background: #ff6f61;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 1rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 100px;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .modal-content {
+      background: #fff;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: black;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      .hero h2 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .btn { font-size: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.8rem; }
+      .hero h2 { font-size: 1.6rem; }
+      .btn { padding: 12px 30px; }
+    }
+  </style>
+
+</head>
+<body>
+
+  <header>
+    <h1>Happy Birthday, Dear Keshav Sir! 🎉</h1>
+  </header>
+
+  <div class="balloons">
+    <div class="balloon" style="left:10%; animation-delay: 0s;"></div>
+    <div class="balloon" style="left:30%; animation-delay: 2s; background: #f6d365;"></div>
+    <div class="balloon" style="left:50%; animation-delay: 4s; background: #ff9a9e;"></div>
+    <div class="balloon" style="left:70%; animation-delay: 6s; background: #a1c4fd;"></div>
+    <div class="balloon" style="left:90%; animation-delay: 8s; background: #c2e9fb;"></div>
+  </div>
+
+  <section class="hero">
+    <h2>Wishing you endless joy and success! 🎂</h2>
+    <p>Dear Sir, your guidance has shaped our paths. Today we celebrate you with love and gratitude. Stay blessed always!</p>
+    <button class="btn" id="celebrateBtn">Celebrate 🎈</button>
+  </section>
+
+  <section class="content-section">
+    <h3>Special Message 📝</h3>
+    <p>"A teacher is like a candle — it consumes itself to light the way for others." Thank you for your light, sir! We are grateful for everything you do.</p>
+  </section>
+
+  <footer>
+    Created with ❤️ by Your Student - Rabh Developer
+  </footer>
+
+  <!-- Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>🎉 Surprise! 🎉</h2>
+      <p>May this year bring you as much happiness as you bring to your students! 🎂</p>
+    </div>
+  </div>
+
+  <!-- Audio -->
+  <audio id="birthdayMusic" src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3" preload="auto"></audio>
+
+  <script>
+    const celebrateBtn = document.getElementById('celebrateBtn');
+    const music = document.getElementById('birthdayMusic');
+    const modal = document.getElementById('myModal');
+    const span = document.getElementsByClassName('close')[0];
+
+    celebrateBtn.addEventListener('click', () => {
+      confetti({
+        particleCount: 300,
+        spread: 120,
+        origin: { y: 0.6 }
+      });
+
+      music.play();
+      modal.style.display = "block";
+    });
+
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Auto confetti on load
+    window.onload = () => {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.8 }
+      });
+    }
+  </script>
+
+</body>
+</html>
